@@ -30,10 +30,10 @@ For a comparison of different background generation models, see [this](data/comp
 
 
 ## Example
-### Input
-![pan](data/pan.png)
-### Output
-![pan_out](data/pan_output.png)
+<div style="display: flex; justify-content: space-between;">
+    <img src="data/pan.png" alt="pan" style="width: 50%;" />
+    <img src="data/pan_output.png" alt="pan_out" style="width: 50%;" />
+</div>
 
 
 ## File organization
