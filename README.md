@@ -34,3 +34,21 @@ For a comparison of different background generation models, see [this](data/comp
 ![pan](data/pan.png)
 ### Output
 ![pan_out](data/pan_output.png)
+
+
+## File organization
+```
+.
+├── replacer
+│   ├── __init__.py
+│   ├── __main__.py              - CLI functionality
+│   ├── app.py                   - Gradio application
+│   ├── processing
+│   │   ├── __init__.py
+│   │   ├── adjust_image.py      - Tools for adjusting image propertiers
+│   │   ├── normalization.py     - Different methods of color normalization
+│   │   └── remove_background.py - Background removal functionality
+│   ├── prompts.py               - List of item categories and corresponding prompts
+│   └── replacer.py              - Main module for background replacement
+└── requirements.txt
+```
