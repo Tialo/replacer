@@ -27,3 +27,10 @@ python -m replacer input.png output.png
 
 ## Background generation comparison
 For a comparison of different background generation models, see [this](data/comparison.md) table.
+
+
+## Example
+### Input
+![pan](data/pan.png)
+### Output
+![pan_out](data/pan_output.png)
