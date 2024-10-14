@@ -1,6 +1,6 @@
 # Table with comparison between different text to image models
 
-## Comparison conducted on Google Colab using A100 with +-12 tokens prompts
+## The comparison was conducted using Google Colab on an A100 GPU with prompts of approximately ±12 tokens.
 
 | Name                                     | Avg. infer time | Score* | Num. Inference Steps |
 |------------------------------------------|-----------------|--------|----------------------|
