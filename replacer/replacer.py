@@ -42,13 +42,13 @@ def _load_bg_model():
     return _bg_model
 
 
-def classify_object(image: Image, labels: list[str] = None) -> str:
+def classify_object(image: Image.Image, labels: list[str] = None) -> str:
     """
     Return the most appropriate label for an image.
 
     Parameters
     ----------
-    image : Image
+    image : Image.Image
         The image to be classified.
     labels : list of str, optional
         A list of labels to classify the image against. If not provided, default labels will be used.
@@ -68,7 +68,7 @@ def classify_object(image: Image, labels: list[str] = None) -> str:
     return labels[outputs.logits_per_image.argmax()]
 
 
-def create_background(prompt: str) -> Image:
+def create_background(prompt: str) -> Image.Image:
     """
     Generate background by given prompt.
 
@@ -79,7 +79,7 @@ def create_background(prompt: str) -> Image:
 
     Returns
     -------
-    Image
+    Image.Image
         The generated background image.
     """
     pipe = _load_bg_model()
@@ -112,7 +112,22 @@ def pipeline(
     input_image: Image.Image, return_intermediate: bool = False
 ) -> Image.Image | list[Image.Image]:
     """
-    Generate a new image by replacing the background of the input image with a new background that fits to its category.
+    Generate a new image by replacing the background of the input image with a new background.
+
+    Pipeline steps:
+    1. Remove the background from the input image.
+    2. Determine the object present by looking at image-label similarity.
+    3. Generate a new background image based on the prompt fitting object label.
+    4. Replace the background of the input image with the new background.
+    5. Normalize the colors of the image.
+    6. Adjust the brightness, contrast, and saturation of the image.
+
+    Notes
+    -----
+    The pipeline uses the following models:
+    - Background removal: BiRefNet (implemented in rembg package)
+    - Image-label similarity: CLIP
+    - Background generation: SDXL-Turbo
 
     Parameters
     ----------
