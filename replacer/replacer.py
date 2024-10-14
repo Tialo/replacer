@@ -12,6 +12,31 @@ from .processing.adjust_image import adjust_image
 
 logger = logging.getLogger(__name__)
 
+_clip_preprocessor = None
+_clip_model = None
+_bg_model = None
+
+
+def _load_clip_model():
+    global _clip_model
+    if _clip_model is None:
+        _clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+    return _clip_model
+def _load_clip_preprocessor():
+    global _clip_preprocessor
+    if _clip_preprocessor is None:
+        _clip_preprocessor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+    return _clip_preprocessor
+
+
+def _load_bg_model():
+    global _bg_model
+    if _bg_model is None:
+        _bg_model = AutoPipelineForText2Image.from_pretrained(
+            "stabilityai/sdxl-turbo", torch_dtype=torch.float16, variant="fp16"
+        ).to("cuda")
+    return _bg_model
+
 
 def classify_object(image: Image, labels: list[str] = None) -> str:
     """
@@ -32,8 +57,8 @@ def classify_object(image: Image, labels: list[str] = None) -> str:
     if labels is None:
         labels = list(_default_prompts)
 
-    processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
-    model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+    processor = _load_clip_preprocessor()
+    model = _load_clip_model()
     inputs = processor(text=labels, images=image, return_tensors="pt", padding=True)
     outputs = model(**inputs)
     return labels[outputs.logits_per_image.argmax()]
@@ -53,9 +78,7 @@ def create_background(prompt: str) -> Image:
     Image
         The generated background image.
     """
-    pipe = AutoPipelineForText2Image.from_pretrained(
-        "stabilityai/sdxl-turbo", torch_dtype=torch.float16, variant="fp16"
-    ).to("cuda")
+    pipe = _load_bg_model()
     return pipe(prompt=prompt, num_inference_steps=2, guidance_scale=0.0).images[0]
 
 

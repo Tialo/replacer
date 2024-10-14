@@ -1,7 +1,9 @@
 torch
 opencv-python
 numpy<2
-torchvision
 pillow
 rembg[gpu]
 diffusers
+transformers
+accelerate
+gradio
