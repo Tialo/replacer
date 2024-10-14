@@ -22,10 +22,14 @@ def _load_clip_model():
     if _clip_model is None:
         _clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
     return _clip_model
+
+
 def _load_clip_preprocessor():
     global _clip_preprocessor
     if _clip_preprocessor is None:
-        _clip_preprocessor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+        _clip_preprocessor = CLIPProcessor.from_pretrained(
+            "openai/clip-vit-base-patch32"
+        )
     return _clip_preprocessor
 
 

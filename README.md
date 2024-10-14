@@ -1,5 +1,12 @@
 # Replacer
-Tool for removing an object background and replacing it with neutral generated one. 
+Tool for removing an object background and replacing it with neutral generated one.
+
+## Installation
+```bash
+git clone https://github.com/Tialo/replacer
+cd replacer
+pip install -r requirements.txt
+```
 
 ## Usage
 
