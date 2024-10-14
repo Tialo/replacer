@@ -19,26 +19,26 @@
 __\*__ Subjective  
 __\*\*__ Best
 
-![Comparison Image](data/comparison/sdxlt_2_art.png)
+![Comparison Image](comparison/sdxlt_2_art.png)  
 *Figure 1: stabilityai/sdxl-turbo, 2 steps, "Art"*
 
-![Comparison Image](data/comparison/sdxlt_2_tools.png)
+![Comparison Image](comparison/sdxlt_2_tools.png)  
 *Figure 2: stabilityai/sdxl-turbo, 2 steps, "Tools"*
 
-![Comparison Image](data/comparison/fluxdev_20_art.png)
+![Comparison Image](comparison/fluxdev_20_art.png)  
 *Figure 3: black-forest-labs/FLUX.1-dev, 20 steps, "Art"*
 
-![Comparison Image](data/comparison/fluxdev_20_tools.png)
+![Comparison Image](comparison/fluxdev_20_tools.png)  
 *Figure 4: black-forest-labs/FLUX.1-dev, 20 steps, "Tools"*
 
-![Comparison Image](data/comparison/fluxsc_20_art.png)
+![Comparison Image](comparison/fluxsc_20_art.png)  
 *Figure 5: black-forest-labs/FLUX.1-schnell, 20 steps, "Art"*
 
-![Comparison Image](data/comparison/fluxsc_20_tools.png)
+![Comparison Image](comparison/fluxsc_20_tools.png)  
 *Figure 6: black-forest-labs/FLUX.1-schnell, 20 steps, "Tools"*
 
-![Comparison Image](data/comparison/sd15_50_art.png)
+![Comparison Image](comparison/sd15_50_art.png)  
 *Figure 7: sd-legacy/stable-diffusion-v1-5, 50 steps, "Art"*
 
-![Comparison Image](data/comparison/sd15_50_tools.png)
+![Comparison Image](comparison/sd15_50_tools.png)  
 *Figure 8: sd-legacy/stable-diffusion-v1-5, 50 steps, "Tools"*

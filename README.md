@@ -26,4 +26,4 @@ python -m replacer input.png output.png
 * Object is pasted into new background
 
 ## Background generation comparison
-For a comparison of different background generation models, see [this](comparison.md) table.
+For a comparison of different background generation models, see [this](data/comparison.md) table.
